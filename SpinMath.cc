@@ -80,21 +80,3 @@ long operator* (long m, const Spin& a)
 {
     return a * m;
 }
-
-
-long operator+= (const long m, const Spin& s)
-{
-    return m + s;
-}
-
-
-long operator-= (const long m, const Spin& s)
-{
-    return m - s;
-}
-
-
-long operator*= (const long m, const Spin& s)
-{
-    return m * s;
-}

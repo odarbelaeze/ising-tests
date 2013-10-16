@@ -31,12 +31,4 @@ long operator- (const long m, const Spin& s);
 long operator* (const Spin& s, const long m);
 long operator* (const long m, const Spin& s);
 
-/*
-    Contracted operators
-*/
-
-long operator+= (const long m, const Spin& s);
-long operator-= (const long m, const Spin& s);
-long operator*= (const long m, const Spin& s);
-
 #endif
