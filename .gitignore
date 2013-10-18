@@ -3,3 +3,10 @@ main
 *.a
 *.out
 *.png
+
+#autotools
+
+config.h*
+*.deps*
+*.Po
+*/.dirstamp
