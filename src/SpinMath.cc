@@ -44,6 +44,19 @@ int operator- (const Spin& a, const Spin& b)
 }
 
 
+long operator* (const Spin& a, long m)
+{
+    if (a == Spin::Up) return   m;
+    else               return - m;
+}
+
+
+long operator* (long m, const Spin& a)
+{
+    return a * m;
+}
+
+
 long operator+ (const Spin& a, long m)
 {
     if (a == Spin::Up) return m + 1;
@@ -66,17 +79,4 @@ long operator- (const Spin& a, long m)
 long operator- (long m, const Spin& a)
 {
     return ( - a) + m;
-}
-
-
-long operator* (const Spin& a, long m)
-{
-    if (a == Spin::Up) return   m;
-    else               return - m;
-}
-
-
-long operator* (long m, const Spin& a)
-{
-    return a * m;
 }

@@ -8,11 +8,12 @@
 #include "SpinMath.h"
 
 class InvalidStateException : public std::exception {};
+class InvalidParticleNumberException : public std::exception {};
 
 class System
 {
 public:
-    System(unsigned int N);
+    explicit System(unsigned int N);
     ~System();
 
     void set(unsigned long n);

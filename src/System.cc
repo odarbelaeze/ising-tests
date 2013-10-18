@@ -2,8 +2,22 @@
 
 System::System(unsigned int N)
 {
+    if (N == 0) throw InvalidParticleNumberException(); 
     N_ = N;
-    state_ = new Spin[N];
+
+    /*
+        If there is not enough memory to allocate the state
+        an InvalidParticleNumberException must be thrown.
+    */
+    
+    try
+    {
+        state_ = new Spin[N];
+    }
+    catch (std::bad_alloc &e)
+    {
+        throw InvalidParticleNumberException();
+    }
 }
 
 

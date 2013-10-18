@@ -24,11 +24,11 @@ int operator- (const Spin& a, const Spin& b);
     Ring external operations
 */
 
+long operator* (const Spin& s, const long m);
+long operator* (const long m, const Spin& s);
 long operator+ (const Spin& s, long m);
 long operator+ (const long m, const Spin& s);
 long operator- (const Spin& s, const long m);
 long operator- (const long m, const Spin& s);
-long operator* (const Spin& s, const long m);
-long operator* (const long m, const Spin& s);
 
 #endif
