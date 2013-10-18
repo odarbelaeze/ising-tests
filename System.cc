@@ -36,7 +36,7 @@ long System::magnetization()
     long magnetization = 0L;
     for (int i = 0; i < N_; ++i)
     {
-        magnetization = magnetization + state_[i];
+        magnetization += (state_[i] == Spin::Up)? 1 : - 1;
     }
     return magnetization;
 }
