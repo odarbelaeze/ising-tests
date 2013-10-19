@@ -20,7 +20,6 @@ AM_PATH_CPPUNIT(1.9.6)
 AC_CONFIG_FILES([Makefile])
 
 # Checks for libraries.
-# FIXME: Replace `main' with a function in `-lboost_program_options':
 AC_CHECK_LIB([boost_program_options], [store])
 AC_PROG_RANLIB
 

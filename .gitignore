@@ -6,7 +6,12 @@ main
 
 #autotools
 
+Makefile*
+aclocal.m4
 config.h*
 *.deps*
 *.Po
-*/.dirstamp
+*/.dirstam*
+config*
+stamp*
+autom4te.cache/
