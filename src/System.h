@@ -18,11 +18,11 @@ public:
 
     void set(unsigned long n);
     long magnetization();
-    long energy();
+    virtual long energy();
 
     friend std::ostream& operator<< (std::ostream& os, System system);
 
-private:
+protected:
     unsigned int N_;
     Spin* state_;
 

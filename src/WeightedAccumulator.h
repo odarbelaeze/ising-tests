@@ -14,10 +14,15 @@ public:
     ~WeightedAccumulator();
 
     void accum(double x, double w);
+
     double mean();
     double meansq();
     double var();
     double stddev();
+
+    double getData();
+    double getDatasq();
+    double getWeights();
 
 private:
     double data_;

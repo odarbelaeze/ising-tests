@@ -93,11 +93,11 @@ int main(int argc, char const *argv[])
 
         std::cout << std::setw(15) << kbt
                   << std::setw(15) << wa_energy.mean()
-                  << std::setw(15) << wa_energy.stddev()
+                  << std::setw(15) << wa_energy.var()
                   << std::setw(15) << wa_magnet.mean()
-                  << std::setw(15) << wa_magnet.stddev()
+                  << std::setw(15) << wa_magnet.var()
                   << std::setw(15) << wa_absmag.mean()
-                  << std::setw(15) << wa_absmag.stddev()
+                  << std::setw(15) << wa_absmag.var()
                   << std::endl;
 
     }

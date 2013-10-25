@@ -67,3 +67,23 @@ double WeightedAccumulator::stddev()
 {
     return std::sqrt(var());
 }
+
+
+double WeightedAccumulator::getData()
+{
+    return data_;
+}
+
+
+double WeightedAccumulator::getDatasq()
+{
+    return datasq_;
+}
+
+
+double WeightedAccumulator::getWeights()
+{
+    return weights_;
+}
+
+

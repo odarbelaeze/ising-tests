@@ -23,13 +23,13 @@ class SpinTest : public CppUnit::TestFixture
 public:
     void setUp();
     void tearDown();
-    
+
     void testNegation();
-    
+
     void testInternalMultiplication();
     void testInternalAddition();
     void testInternalSubtraction();
-    
+
     void testExternalMultiplication();
     void testExternalAddition();
     void testExternalSubtraction();

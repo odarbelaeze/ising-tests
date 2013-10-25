@@ -7,7 +7,7 @@ main
 #autotools
 
 Makefile*
-aclocal.m4
+aclocal.m4*
 config.h*
 *.deps*
 *.Po

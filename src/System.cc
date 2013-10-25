@@ -50,7 +50,7 @@ long System::magnetization()
     long magnetization = 0L;
     for (int i = 0; i < N_; ++i)
     {
-        magnetization += (state_[i] == Spin::Up)? 1 : - 1;
+        magnetization = magnetization + state_[i];
     }
     return magnetization;
 }
@@ -61,7 +61,7 @@ long System::energy()
     long energy = 0L;
     for (int i = 0; i < N_; ++i)
     {
-        energy += (state_[i] == state_[(i + 1) % N_])? - 1 : 1;
+        energy -= state_[i] * state_[(i + 1) % N_];
     }
     return energy;
 }

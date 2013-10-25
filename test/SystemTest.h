@@ -12,6 +12,9 @@ class SystemTest : public CppUnit::TestFixture
     CPPUNIT_TEST_EXCEPTION(testConstructorThrowsNegative, InvalidParticleNumberException);
     CPPUNIT_TEST_EXCEPTION(testSetThrowsUp, InvalidStateException);
     CPPUNIT_TEST_EXCEPTION(testSetThrowsDown, InvalidStateException);
+    CPPUNIT_TEST(testSetOutput);
+    CPPUNIT_TEST(testMagnetization);
+    CPPUNIT_TEST(testEnergy);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -22,9 +25,16 @@ public:
     void testConstructorThrowsNegative();
     void testSetThrowsUp();
     void testSetThrowsDown();
+    void testSetOutput();
+    void testMagnetization();
+    void testEnergy();
+
+
 
 private:
     System* sys;
+    Spin up;
+    Spin down;
 
 };
 
