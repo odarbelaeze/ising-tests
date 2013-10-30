@@ -10,7 +10,7 @@ class SystemMC : public System
 {
 public:
     explicit SystemMC(unsigned int N);
-    void mcs(double kBT);
+    void mcs();
 
 protected:
     long energy_(int i);

@@ -69,6 +69,8 @@ int main(int argc, char const *argv[])
     {
         double kbt = kbt_max - s * h;
 
+        sys.setWeights(kbt);
+
         WeightedAccumulator wa_energy;
         WeightedAccumulator wa_magnet;
         WeightedAccumulator wa_absmag;
@@ -79,16 +81,13 @@ int main(int argc, char const *argv[])
         {
             sys.set(i);
             
+            energy = sys.energy();
+            mag    = sys.magnetization();
+            w      = sys.getWeight(energy);
 
-            energy = (double) sys.energy();
-            mag    = (double) sys.magnetization();
-            w      = std::exp( - energy / kbt);
-
-            // std::cout << sys << "  " << energy << "  " << mag << std::endl;
-            
-            wa_energy.accum(energy / n, w);
-            wa_magnet.accum(mag / n, w);
-            wa_absmag.accum(std::abs(mag) / n, w);
+            wa_energy.accum((double) energy / n, w);
+            wa_magnet.accum((double) mag / n, w);
+            wa_absmag.accum((double) std::abs(mag) / n, w);
         }
 
         std::cout << std::setw(15) << kbt

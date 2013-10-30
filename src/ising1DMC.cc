@@ -82,6 +82,8 @@ int main(int argc, char const *argv[])
     {
         double kbt = kbt_max - s * h;
 
+        sys.setWeights(kbt);
+
         Accumulator a_energy;
         Accumulator a_magnet;
         Accumulator a_absmag;
@@ -90,17 +92,15 @@ int main(int argc, char const *argv[])
 
         for (int i = 0; i < mcs_relax; ++i)
         {
-            sys.mcs(kbt);
+            sys.mcs();
         }
 
         for (int i = 0; i < mcs_sample; ++i)
         {
-            sys.mcs(kbt);
+            sys.mcs();
 
             energy = (double) sys.energy() / n;
             mag    = (double) sys.magnetization() / n;
-
-            // std::cout << sys << "  " << energy << "  " << mag << std::endl;
             
             a_energy.accum(energy);
             a_magnet.accum(mag);

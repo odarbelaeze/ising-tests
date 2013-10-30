@@ -13,11 +13,14 @@ System::System(unsigned int N)
     try
     {
         state_ = new Spin[N];
+        weights_ = new double[4 * (int) N + 1];
     }
     catch (std::bad_alloc &e)
     {
         throw InvalidParticleNumberException();
     }
+
+    std::cout << "System recently created" << std::endl;
 }
 
 
@@ -74,4 +77,21 @@ std::ostream& operator<< (std::ostream& os, System sys)
         os << sys.state_[i];
     }
     return os;
+}
+
+
+void System::setWeights(double kBT)
+{
+    long max_ener = 2 * (long) N_;
+    for (long ener = - max_ener; ener <= max_ener; ener++)
+    {
+        weights_[ener + 2 * (long) N_] = std::exp( - ener / kBT);
+    }
+}
+
+
+double System::getWeight(long ener)
+{
+    if (ener < - 2 * (int) N_ || ener > 2 * (int) N_) throw UnavailableEnergyException();
+    return weights_[ener + 2 * (int) N_];
 }

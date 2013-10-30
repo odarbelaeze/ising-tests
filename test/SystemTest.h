@@ -15,6 +15,8 @@ class SystemTest : public CppUnit::TestFixture
     CPPUNIT_TEST(testSetOutput);
     CPPUNIT_TEST(testMagnetization);
     CPPUNIT_TEST(testEnergy);
+    CPPUNIT_TEST(testWeights);
+    CPPUNIT_TEST(testGetWeightThrows);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -28,7 +30,8 @@ public:
     void testSetOutput();
     void testMagnetization();
     void testEnergy();
-
+    void testWeights();
+    void testGetWeightThrows();
 
 
 private:

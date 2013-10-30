@@ -12,7 +12,7 @@ SystemMC::SystemMC(unsigned int N) : System(N)
 
 
 
-void SystemMC::mcs(double kBT)
+void SystemMC::mcs()
 {
     int ii;
     double r;
@@ -25,7 +25,7 @@ void SystemMC::mcs(double kBT)
             This have C++11 support already.
         */
         r =  static_cast<double>(rand()) / RAND_MAX;
-        if (r < std::exp(2.0 * energy_(ii) / kBT)) flip_(ii);
+        if (r < getWeight(- 2 * energy_(ii))) flip_(ii);
     }
 }
 

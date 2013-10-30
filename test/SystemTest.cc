@@ -74,3 +74,24 @@ void SystemTest::testEnergy()
     sys -> set(666);
     CPPUNIT_ASSERT_EQUAL(    6L, sys -> energy());
 }
+
+
+void SystemTest::testWeights()
+{
+    sys = new System(10);
+    sys -> setWeights(0.5);
+    CPPUNIT_ASSERT_EQUAL(std::exp( - 10 / 0.5), sys -> getWeight(10));
+    CPPUNIT_ASSERT_EQUAL(std::exp( - 20 / 0.5), sys -> getWeight(20));
+    CPPUNIT_ASSERT_EQUAL(std::exp( + 10 / 0.5), sys -> getWeight(- 10));
+    CPPUNIT_ASSERT_EQUAL(std::exp( + 20 / 0.5), sys -> getWeight(- 20));
+}
+
+
+
+void SystemTest::testGetWeightThrows()
+{
+    sys = new System(10);
+    sys -> setWeights(0.5);
+    CPPUNIT_ASSERT_THROW(sys -> getWeight(21), UnavailableEnergyException);
+    CPPUNIT_ASSERT_THROW(sys -> getWeight(-21), UnavailableEnergyException);
+}
