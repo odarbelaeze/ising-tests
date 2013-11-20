@@ -1,15 +1,16 @@
 ACLOCAL_AMFLAGS = -I m4 --install
 
-noinst_LIBRARIES = libspins.a libstats.a libsystem1D.a
+noinst_LIBRARIES = libspins.a libstats.a libsystem.a libsim.a
 
 libspins_a_SOURCES = src/SpinMath.cc src/SpinMath.h
 
-libsystem1D_a_SOURCES = src/System.cc src/System.h \
-                        src/SystemMC.cc src/SystemMC.h \
-                        src/SpinMath.cc src/SpinMath.h
+libsystem_a_SOURCES = src/BaseSystem.cc src/BaseSystem.h \
+                      src/ExactSystem.cc src/ExactSystem.h
 
 libstats_a_SOURCES = src/WeightedAccumulator.cc src/WeightedAccumulator.h \
                      src/Accumulator.cc src/Accumulator.h
+
+libsim_a_SOURCES = src/BaseSimulation.h src/BaseSimulation.cc
 
 TESTS = testSpin testSystem1D testWeightedAccumulator
 noinst_PROGRAMS = $(TESTS)
