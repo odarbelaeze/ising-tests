@@ -18,11 +18,12 @@ class BaseSimulation
 {
 public:
     BaseSimulation(int, char**);
-    ~BaseSimulation();
+    virtual ~BaseSimulation();
 
     virtual void store();
     virtual void validate();
-    virtual void run();
+    // Pure virtual function
+    virtual void run() = 0;
     po::options_description& getDesc();
     po::variables_map& getVariables();
 
@@ -40,6 +41,9 @@ protected:
 
     double kbtMax_;
     double kbtMin_;
+
+    int ac_;
+    char** av_;
 
 };
 

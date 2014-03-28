@@ -31,6 +31,9 @@ BaseSimulation::BaseSimulation(int ac, char** av)
             "number of particles (must be greater than 0)"
         )
     ;
+
+    ac_ = ac;
+    av_ = av;
 }
 
 
@@ -42,7 +45,7 @@ BaseSimulation::~BaseSimulation()
 
 void BaseSimulation::store()
 {
-    po::store(po::parse_command_line(ac, av, desc_), vm_);
+    po::store(po::parse_command_line(ac_, av_, desc_), vm_);
     po::notify(vm_);
 }
 
@@ -53,12 +56,6 @@ void BaseSimulation::validate()
     if (dimensions_ != 1 && dimensions_ != 2) throw ValidationError();
     if (kbtMax_ < kbtMin_) throw ValidationError();
     if (steps_ < 1) throw ValidationError();
-}
-
-
-void BaseSimulation::run()
-{
-
 }
 
 
