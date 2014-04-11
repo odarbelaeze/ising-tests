@@ -1,0 +1,12 @@
+language: cpp
+
+compiler: gcc
+
+install:
+    sudo apt-get install -qq libcppunit-dev --install-suggests
+
+script:
+    - autoreconf -i && ./configure && make
+    - make check
+
+
